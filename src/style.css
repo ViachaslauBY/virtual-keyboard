@@ -118,6 +118,6 @@ body {
 }
 
 .button.active {
-  color: rgb(32, 245, 47);
+  color: rgb(209, 248, 69);
   transform: scale(0.9);
 }

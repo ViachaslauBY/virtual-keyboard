@@ -76,7 +76,6 @@ const keyboardKeys = [
   },
   {
     ControlLeft: 'Ctrl',
-    // MetaLeft: 'Meta',
     AltLeft: 'Alt',
     Space: ' ',
     AltRight: 'Alt',
@@ -93,8 +92,8 @@ const addButtons = () => {
     div.classList.add('line');
     let block = '';
 
-    Object.values(keyboardKeys[i]).map((el) => {      
-      block += `<div class="button" data="${el.charCodeAt()}">${el}</div>`;
+    Object.entries(keyboardKeys[i]).map(el => {
+      block += `<div class="button" data="${el[0]}">${el[1]}</div>`;
     });
 
     div.innerHTML = block;
@@ -102,25 +101,19 @@ const addButtons = () => {
   }
 };
 
-// По клику на клавишу
-document.onkeypress = (event) => {
-  console.log(event);
+addButtons();
+
+// По клику на кнопку
+document.onkeydown = (event) => {
   document.querySelectorAll('.button').forEach((el) => {
     el.classList.remove('active');
   });
 
-  document.querySelector(`.button[data="${event.keyCode}"]`).classList.add('active');
-  
+  document.querySelector(`.button[data="${event.code}"]`).classList.add('active');
 };
 
-addButtons();
-
-
-
-// const arr = [];
-// document.onkeydown = event => {
-//   console.log(event);
-//   console.log(event.code);
-//   arr.push(event.code)
-//    console.log(arr);
-// }
+document.onkeyup = () => {
+  document.querySelectorAll('.button').forEach((el) => {
+    el.classList.remove('active');
+  });
+};
