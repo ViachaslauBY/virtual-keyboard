@@ -93,7 +93,7 @@ const addButtons = () => {
     let block = '';
 
     Object.entries(keyboardKeys[i]).map(el => {
-      block += `<div class="button" data="${el[0]}">${el[1]}</div>`;
+      block += `<button class="button" data="${el[0]}">${el[1]}</button>`;
     });
 
     div.innerHTML = block;
@@ -104,16 +104,34 @@ const addButtons = () => {
 addButtons();
 
 // По клику на кнопку
-document.onkeydown = (event) => {
-  document.querySelectorAll('.button').forEach((el) => {
+document.onkeydown = (event => {
+  document.querySelectorAll('.button').forEach(el => {
     el.classList.remove('active');
   });
 
   document.querySelector(`.button[data="${event.code}"]`).classList.add('active');
-};
+});
 
-document.onkeyup = () => {
-  document.querySelectorAll('.button').forEach((el) => {
+document.onkeyup = (() => {
+  document.querySelectorAll('.button').forEach(el => {
     el.classList.remove('active');
   });
-};
+});
+
+// По клику на мышку 
+document.querySelectorAll('.button').forEach(el => {
+  el.addEventListener('mousedown', (event) => {
+    document.querySelectorAll('.button').forEach(el => {
+      el.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    const value = event.target.innerHTML;
+    textarea.value += value;
+  });
+
+  el.addEventListener('mouseup', () => {
+    document.querySelectorAll('.button').forEach(el => {
+      el.classList.remove('active');
+    });
+  });
+});

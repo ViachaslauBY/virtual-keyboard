@@ -101,6 +101,7 @@ body {
 .button {
   padding: 10px;
   width: 45px;
+  border: none;
   border-radius: 12px;
   color: #71d4fe;
   text-align: center;
@@ -111,6 +112,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  outline: none;
 }
 
 .button:active {
