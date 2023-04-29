@@ -1,7 +1,14 @@
 const { body } = document;
+const wrapper = document.createElement('div');
+wrapper.classList.add('wrapper');
+const textarea = document.createElement('textarea');
+textarea.classList.add('textarea');
 const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
-body.appendChild(keyboard);
+
+body.appendChild(wrapper);
+wrapper.appendChild(textarea);
+wrapper.appendChild(keyboard);
 
 const keyboardKeys = [
   {
