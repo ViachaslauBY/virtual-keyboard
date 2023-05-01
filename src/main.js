@@ -84,15 +84,16 @@ const keyboardKeys = [
     ArrowRight: '►',
     ControlRight: 'Ctrl',
   },
-]; 
+];
 
+// Добавление кнопок
 const addButtons = () => {
   for (let i = 0; i < keyboardKeys.length; i++) {
     const div = document.createElement('div');
     div.classList.add('line');
     let block = '';
 
-    Object.entries(keyboardKeys[i]).map(el => {
+    Object.entries(keyboardKeys[i]).map((el) => {
       block += `<button class="button" data="${el[0]}">${el[1]}</button>`;
     });
 
@@ -104,8 +105,8 @@ const addButtons = () => {
 addButtons();
 
 // По клику на кнопку
-document.onkeydown = (event => {
-  document.querySelectorAll('.button').forEach(el => {
+document.onkeydown = ((event) => {
+  document.querySelectorAll('.button').forEach((el) => {
     el.classList.remove('active');
   });
 
@@ -113,15 +114,15 @@ document.onkeydown = (event => {
 });
 
 document.onkeyup = (() => {
-  document.querySelectorAll('.button').forEach(el => {
+  document.querySelectorAll('.button').forEach((el) => {
     el.classList.remove('active');
   });
 });
 
-// По клику на мышку 
-document.querySelectorAll('.button').forEach(el => {
+// По клику на мышку
+document.querySelectorAll('.button').forEach((el) => {
   el.addEventListener('mousedown', (event) => {
-    document.querySelectorAll('.button').forEach(el => {
+    document.querySelectorAll('.button').forEach((el) => {
       el.classList.remove('active');
     });
     event.target.classList.add('active');
@@ -130,7 +131,7 @@ document.querySelectorAll('.button').forEach(el => {
   });
 
   el.addEventListener('mouseup', () => {
-    document.querySelectorAll('.button').forEach(el => {
+    document.querySelectorAll('.button').forEach((el) => {
       el.classList.remove('active');
     });
   });
