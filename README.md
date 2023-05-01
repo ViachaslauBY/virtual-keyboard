@@ -1,3 +1,3 @@
 # Deploy приложения :
 
-https://ViachaslauBY.github.io/virtual-keyboard/
+https://viachaslauby.github.io/virtual-keyboard/src/
